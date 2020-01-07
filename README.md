@@ -5,9 +5,9 @@ While these algorithms aren't necessarily optimised for fastest performance, the
 
 ## Table of Contents
 - Alphabetic Ciphers
- - Caesar ciphers
- - Vigenere
+  - Caesar ciphers
+  - Vigenere
 
 - Block ciphers
- - DES
- - AES
+  - DES
+  - AES
