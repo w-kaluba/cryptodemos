@@ -11,3 +11,9 @@ While these algorithms aren't necessarily optimised for fastest performance, the
 - Block ciphers
   - DES
   - AES
+
+---
+
+## TO-DO:
+- Finish Python implementations of DES, RSA and attacks on existing ciphers.
+- 
