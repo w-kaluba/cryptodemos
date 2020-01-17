@@ -17,6 +17,16 @@ There are also initial and final permutations that rearrange the bits
 # It probably makes sense to have a random key generator function here
 
 
+def key_permutation1(key):
+    """
+    Takes a 64-bit key as input and returns a 56 bit key as an integer.
+    """
+    key56 = 0
+    for i in range(8):
+        row = (key & 0xfe << (8-i))
+        key56 += row << (7 - i)
+
+
 def i_perm(x):
     """
     Takes a 64-bit input and performs the initial permutation of DES.
