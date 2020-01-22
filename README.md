@@ -6,13 +6,10 @@ While these algorithms aren't necessarily optimised for fastest performance, the
 ## Table of Contents
 - Alphabetic Ciphers
   - Caesar ciphers
-  - Substitution ciphers
   - Vigenere
   - Affine Ciphers
 
 - Block ciphers
-  - LFSRs
-  - Nonlinear keystream generators
   - DES
     - Electronic Codebook Mode
     - Cipher Block Chaining Mode
@@ -24,33 +21,34 @@ While these algorithms aren't necessarily optimised for fastest performance, the
 
 - Public Key Cryptography
   - RSA
-  - Rabin
-  - ElGamal  
   - Diffie Hellman Key Exchange
   - Legendre and Jacobi Symbols
-  - CVP and GCH
-  - Elliptic Curves
 
 - Algorithms
-  - Merge Sort (including divison into 3 parts)
-  - Tonelli Shanks
-  - Euclidean Algorithm
-  - Chinese Remainder Theorem
-  - Miller-Rabin Primality Test
-  - Silver Poehlig Hellman
-  - Baby Step Giant Step
-  - Pollard Rho
-  - Index Calculus
-
-- Hash functions
-
-- Signatures
-
-- Information Theory
-  - Lempel-Ziv encoding
+  
 ---
 
 ## TO-DO:
+- CVP and GCH
+- Elliptic Curves
+- Substitution ciphers
+- LFSRs
+- Nonlinear keystream generators
+- Rabin
+- ElGamal
+- Merge Sort (including divison into 3 parts)
+- Tonelli Shanks
+- Euclidean Algorithm
+- Chinese Remainder Theorem
+- Miller-Rabin Primality Test
+- Silver Poehlig Hellman
+- Baby Step Giant Step
+- Pollard Rho
+- Index Calculus
+- Hash functions
+- Signatures
+- Information Theory
+  - Lempel-Ziv encoding  
 - Finish Python implementations of DES, RSA and attacks on existing ciphers.
 - Finding the maximum element of a unimodal sequence
 - Merging three sorted sequences
