@@ -1,6 +1,6 @@
 /*****************************************************************
-* A simple implementation of the Caesar cipher using a basic CLI.
-* The user inputs the encryption shift amount as well as the filename of
+* A simple implementation of the Affine cipher using a basic CLI.
+* The user inputs the key as well as the filename of
 * the ciphertext as the CL arguments when running the program.
 *****************************************************************/
 
@@ -10,7 +10,7 @@
 #include <ctype.h>
 
 void usage_warning();
-char caesar_shift(char, int);
+char affine_shift(char, int, int);
 
 int main(int argc, char *argv[])
 {
@@ -20,16 +20,17 @@ int main(int argc, char *argv[])
     char *buffer;
 
     // Checking for the current number of arguments.
-    if (argc < 3)
+    if (argc < 3 || argv[2] == 0)
     {
         usage_warning();
         return 1;
     }
-    int shift_amount = atoi(argv[2]);
+    int mult_amount = atoi(argv[2]);
+    int shift_amount = atoi(argv[3]);
 
     // Opening input and output files
     plaintext = fopen(argv[1], "r");
-    strcpy(outputfile, argv[3]);
+    strcpy(outputfile, argv[4]);
     ciphertext = fopen(outputfile, "w");
 
     //Iterating through the input file line by line
@@ -43,7 +44,7 @@ int main(int argc, char *argv[])
             {
                 if (isalpha(buffer[i]))
                 {
-                    buffer[i] = caesar_shift(buffer[i], shift_amount);
+                    buffer[i] = affine_shift(buffer[i], mult_amount, shift_amount);
                 }
             }
             fwrite(buffer, sizeof(char), limit, ciphertext);
@@ -59,22 +60,22 @@ int main(int argc, char *argv[])
     }
 }
 
-char caesar_shift(char letter, int shift)
+char affine_shift(char letter, int mult, int shift)
 {
     // Assumes the input is alphabetic.
     char output;
     if (isupper(letter))
     {
-        output = 'A' + (((letter - 'A') + shift) % 26);
+        output = 'A' + (((((letter - 'A') * mult) % 26) + shift) % 26);
     }
     else if (islower(letter))
     {
-        output = 'a' + (((letter - 'a') + shift) % 26);
+        output = 'a' + (((((letter - 'a') * mult) % 26) + shift) % 26);
     }
 }
 
 void usage_warning()
 {
     //Displays a warning to the user to explain usage of the program
-    printf("Usage:\t./caesar [input_filename] [shift amount] [output_filename]");
+    printf("Usage:\t./caesar [input_filename] [a] [b] [output_filename]");
 }
