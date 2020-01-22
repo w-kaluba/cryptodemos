@@ -17,7 +17,7 @@ char caesar_shift(char, int);
 int main(int argc, char *argv[])
 {
     FILE *ciphertext;
-    char *outputfile;
+    char *outputfile = "encrypted_";
     FILE *plaintext;
     char *buffer = malloc(256);
     int shift_amount = atoi(argv[1]);
@@ -29,9 +29,10 @@ int main(int argc, char *argv[])
     }
 
     plaintext = fopen(argv[2], "r");
-    ciphertext = fopen(arg)
+    strcat(argv[1], outputfile);
+    ciphertext = fopen(outputfile, "w");
 
-        while (fgets(buffer, 256, plaintext))
+    while (fgets(buffer, 256, plaintext))
     {
         int limit = strlen(buffer);
         for (int i = 0; i < limit; i++)
@@ -42,11 +43,21 @@ int main(int argc, char *argv[])
             }
         }
     }
+    free(buffer);
 }
 
 char caesar_shift(char letter, int shift)
 {
+    // Assumes the input is alphabetic.
     char output;
+    if (isupper(letter))
+    {
+        output = 'A' + (((letter - 'A') + shift) % 26);
+    }
+    else if (islower())
+    {
+        output = 'a' + (((letter - 'a') + shift) % 26);
+    }
 }
 
 void usage_warning()
