@@ -37,10 +37,15 @@ def key_permutation2(key):
     Takes a 56-bit key as input and returns the key permuted according to the following rule:
     Each bit is substituted with the bit of row*8 + column
     where the key is arrange into a grid of 7 rows and 8 columns.
-    Thus the row number is given by bit number // 7 and the column number is given by bit number % 8.
+    Thus the row number is given by bit number // 8 and the column number is given by bit number % 7git ad.
     This could be implemented using arrays or using ints but I'm going to do ints because there's less overhead in python.
     """
-    
+    key56 = 0
+    for i in range(64):
+        bit = 1 << i
+        row = i // 7
+        column = i % 8
+        position = (row * 8 + column) % 64
 
 
 print(format(0xfefefefefefefefe, '064b'))
